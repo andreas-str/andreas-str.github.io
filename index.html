@@ -73,28 +73,25 @@
 								</p>
 								<div class="field half">
 									<input type="checkbox" id="robot1" name="robot1">
-									<label for="robot1">I am a robot</label>
+									<label for="robot1">I am a robotn't</label>
 								</div>
 								<div class="field half">
 									<input type="checkbox" id="robot2" name="robot2">
-									<label for="robot2">I am a robotn't</label>
+									<label for="robot2">My blood is green</label>
 								</div>
-								<div class="field half">
-									<input type="checkbox" id="robot3" name="robot3">
-									<label for="robot3">My blood is green</label>
-								</div>
-								<input id="clickMe" type="button" value="clickme" onclick="validateRobot();" />
-								<li><a href="#" class="button">Show me the CV</a></li>
+								<input id="Show me the CV" type="button" value="Show me the CV" onclick="validateRobot();" />
+								
 								<script type="text/javascript">
 									function validateRobot() {
-										if (document.getElementById('robot2').checked) {
-											if (document.getElementById('robot3').checked) {
-												alert("not robot");
+										if (document.getElementById('robot1').checked) {
+											if (document.getElementById('robot2').checked) {
+												location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 											} else {
-												alert("robot");
+												alert("Probably not a robot :) click OK");
+												location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 											}
 										} else {
-											alert("robot")
+											location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 										}
 									}
 								</script>
