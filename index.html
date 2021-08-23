@@ -45,10 +45,10 @@
 									Hi I'm Andreas and I'm an Embedded Systems Engineer.<br /> 
 									I work with electronics, do both hardware and soft/firmware work,
 									and am a massive fan of the aviation and rocketry industry.<br />
-
+									<hr />
 									I have an interest in developing new technology, as well as repairing and reusing.
 									You may also find me modifying and tweaking products to do cool things or make them do things they weren't designed to do.
-									
+									<hr />
 									Everything that can be hacked, will be hacked.
 
 									</p>
@@ -57,6 +57,7 @@
 						<!-- Work -->
 							<article id="work">
 								<h2 class="major">Projects</h2>
+
 								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
 								<p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.</p>
 								<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
@@ -65,8 +66,38 @@
 						<!-- About -->
 							<article id="about">
 								<h2 class="major">CV/Resume</h2>
-								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
-								<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
+								<p>
+									Before presenting you with my CV, I'd like to first make sure you are human.
+									<hr />
+									Tick all boxes that represent you:
+								</p>
+								<div class="field half">
+									<input type="checkbox" id="robot1" name="robot1">
+									<label for="robot1">I am a robot</label>
+								</div>
+								<div class="field half">
+									<input type="checkbox" id="robot2" name="robot2">
+									<label for="robot2">I am a robotn't</label>
+								</div>
+								<div class="field half">
+									<input type="checkbox" id="robot3" name="robot3">
+									<label for="robot3">My blood is green</label>
+								</div>
+								<script type="text/javascript">
+									function validateRobot() {
+										if (document.getElementById('robot2').checked) {
+											if (document.getElementById('robot3').checked) {
+												alert("not robot");
+											} else {
+												alert("robot");
+											}
+										} else {
+											alert("robot")
+										}
+									}
+								</script>
+								<li><a href="#" class="button">Show me the CV</a></li>
+
 							</article>
 
 						<!-- Contact -->
