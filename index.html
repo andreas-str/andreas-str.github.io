@@ -63,6 +63,7 @@
 									Some of them go back before I even finished highschool, while others are not properly 
 									documented anywhere and only few spare images exist.
 								</p>
+								<hr />
 								<h2>LCD LED Projector</h2>
 								<span class="image main"><img src="images/projector1.jpg" alt="" /></span>
 								<p>
@@ -84,7 +85,7 @@
 								</p>
 								<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/kdRH1EV7vJ8" title="YouTube video player" 
 								frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+								<hr />
 								<h2>Raspberry Pi Laptop</h2>
 								<span class="image main"><img src="images/laptop1.jpg" alt="" /></span>
 								<p>
@@ -113,9 +114,92 @@
 								</p>
 								<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/gzX_eUdESb0" title="YouTube video player" frameborder="0" 
 								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+								<hr />
 								<h2>Electric Skateboard</h2>
 								<span class="image main"><img src="images/board1.jpg" alt="" /></span>
+								<p>
+									This was probably the most fun I ever had with a project. I wanted to make a portable electric
+									skateboard, but on a budget. This skateboard has done over 500km and has been used as a
+									commute vehicle for about a year before suffering a battery failure.
+								</p>
+								<p>
+									So the electric penny sized skateboard was born. I used a 1.2KW 300KV brushless DC motor,
+									controlled with a 90A ESC, which in turn was controlled by an arduino nano. A 5KWh li-po
+									battery was used that allowed up to 15km of range on a single charge. The housing for the
+									electronics was made out of 4mm aluminium sheet that was bent to shape,and would screw
+									below the deck. The motor was mounted on the trucks of the back wheels, using a 3D printed
+									mount. The motor would use a pulley and a belt system to drive one of the wheels. The wheel
+									gear was also 3D printed. All 3D printed parts were printed at 100% infill and ABS, for maximum strength.
+								</p>
+								<span class="image main"><img src="images/board2.jpg" alt="" /></span>
+								<p>
+									On the actual controller now, that controlled the speed, brakes and cruise control of the board,
+									that was made out of a Nintendo Wii nunchuk. This was chosen mainly for its ergonomic size
+									and because it already provided an analog control stick. The controller was extensively modified
+									to allow a small li-po battery, an arduino micro, a bluetooth module and a charge controller to all
+									fit into it. As it’s pretty obvious, the controller communicated with the board using bluetooth. The
+									controller also featured LEDs to indicate the battery charge of the board, as well for the battery
+									of the controller itself.
+								</p>
+								<span class="image main"><img src="images/board3.jpg" alt="" /></span>
+								<p>
+									Many safety features were also incorporated, for example signal loss of either device would
+									cause the board to decelerate to a complete stop. The analog stick also had a safety feature in that it would
+									only change the speed if the trigger button was also pressed, which prevented accidental acceleration.
+									Lastly, head and tail lights were also incorporated in the design, and were triggerable from the
+									controller to allow the board to be used after sunset.
+								</p>
+								<span class="image main"><img src="images/board4.jpg" alt="" /></span>
+								<hr />
+								<h2>Smart Doorbell</h2>
+								<span class="image main"><img src="images/bell1.jpg" alt="" /></span>
+								<p>
+									This was a one day project that I made out of pure frustration of the doorbell situation at the
+									building I used to live in. The doorbell was a simple wireless doorbell that had a receiver that
+									plugged into the wall and would play a sound when it rang from the outside. While this worked,
+									the device was in a location I couldn’t hear in my apartment.
+								</p>
+								<p>
+									So what I did was, I took apart the receiver, and modified it slightly to get a signal out of it when
+									the bell was rang. This was an analog signal, and thus I needed to use something with an ADC
+									to make it internet connected. I already had a Raspberry Pi that was 24/7 on and acted as a
+									media center for my TV, and so I decided to use that. Instead of an ADC, I used an ATtiny8
+									board to read the ADC, and output a digital signal that I then connected to a GPIO input on the
+									raspberry pi. Then on the raspberry pi, I wrote a simple python script to read the GPIO pin, and
+									if it was HIGH, I would send a message to my phone using Telegram. Telegram allows anyone
+									to create a bot and there are APIs to control the bot from a python script, so I used that.
+								</p>
+								<hr />
+								<h2>Weather Station</h2>
+								<span class="image main"><img src="images/weather1.jpg" alt="" /></span>
+								<p>
+									This project was done during the first covid-19 lockdown in the Netherlands. It was mainly done
+									to keep myself busy and try a create something useful out of components I had laying around
+									from other projects.
+									So I made a small weather station. For the information display, I used a 4.3” LCD screen, and
+									powered it with a Raspberry Pi model B, the original one! For extra peripherals a 433Mhz
+									receiver was added to communicate with the weather station, as well as a proximity sensor that I used to navigate on the user interface.
+								</p>
+								<span class="image main"><img src="images/weather2.jpg" alt="" /></span>
+								<p>
+									As for the weather station, I used an old arduino pro mini, a 433MHz transmitter that I got out of
+									an old doorbell, and a DH11 temperature and humidity sensor. The whole thing was powered
+									using a 9V battery, and a small solar cell was used to monitor cloud coverage. Of course not a
+									waterproof system but that could have been added later.
+								</p>
+								<p>
+									The software on the weather station was pure C on an arduino level, and the microcontroller
+									would spend about 99% of its time in deep sleep mode, only waking up every few minutes to
+									take new readings and send them to the display unit.
+								</p>
+								<span class="image main"><img src="images/weather3.jpg" alt="" /></span>
+								<p>
+									The display unit GUI was done in Python 3.7 using pygame as the UI manager. The UI has 4
+									different menus, showing graphs of temperature, humidity and sun, a menu that showed
+									notifications from various services that were configured using IFTTT, and lastly a menu with
+									debug info. All history info was stored in a SQlite database locally. The proximity sensor also
+									allowed a complete system shutdown or reboot based on timing events.
+								</p>
 
 							</article>
 
