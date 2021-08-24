@@ -64,73 +64,55 @@
 									documented anywhere and only few spare images exist.
 								</p>
 								<hr />
-								<h2>LCD LED Projector - 2012</h2>
-								<span class="image main"><img src="images/projector1.jpg" alt="" /></span>
+								<h2>Weather Station - 2020</h2>
+								<span class="image main"><img src="images/weather1.jpg" alt="" /></span>
 								<p>
-									This was the first major project I ever attempted in highschool. I got the idea from a youtube video where
-									someone had created a home theater projector on their own, and I wanted to make one as well.
-									The complexity of such a project is pretty easy for a knowledgeable engineer, but for me, not
-									having a clue how electronics worked made for some very creative solutions.
+									This project was done during the first covid-19 lockdown in the Netherlands. It was mainly done
+									to keep myself busy and try a create something useful out of components I had laying around
+									from other projects.
+									So I made a small weather station. For the information display, I used a 4.3” LCD screen, and
+									powered it with a Raspberry Pi model B, the original one! For extra peripherals a 433Mhz
+									receiver was added to communicate with the weather station, as well as a proximity sensor that I used to navigate on the user interface.
+								</p>
+								<span class="image main"><img src="images/weather2.jpg" alt="" /></span>
+								<p>
+									As for the weather station, I used an old arduino pro mini, a 433MHz transmitter that I got out of
+									an old doorbell, and a DH11 temperature and humidity sensor. The whole thing was powered
+									using a 9V battery, and a small solar cell was used to monitor cloud coverage. Of course not a
+									waterproof system but that could have been added later.
 								</p>
 								<p>
-									The projector works by having a 30W LED act as the backlight to a 3.5” LCD screen. 
-									By using a lens to focus the light evenly on the screen, the screen is then projected to a wall
-									This projector also incorporated playback from a USB drive, which was achieved by
-									cannibalizing a portable dvd player that had that functionality.
+									The software on the weather station was pure C on an arduino level, and the microcontroller
+									would spend about 99% of its time in deep sleep mode, only waking up every few minutes to
+									take new readings and send them to the display unit.
 								</p>
+								<span class="image main"><img src="images/weather3.jpg" alt="" /></span>
 								<p>
-									While the whole design could have been a lot, and I mean a lot better, I feel proud for making
-									this and actually using it to watch movies with friends during the summer. I dedicated a lot of time
-									and love to make it happen, and it still works to this day.
-								</p>
-								<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/kdRH1EV7vJ8" title="YouTube video player" 
-								frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-								<hr />
-								<h2>DIY Smartwatch - 2014</h2>
-								<span class="image main"><img src="images/watch1.jpg" alt="" /></span>
-								<p>
-									This was a project that I pursued simply because I liked the Pebble smartwatch, and I wanted
-									one, but I didn’t have the budget to buy one so I decided to make one.
-									It was based on an arduino pro mini, a bluetooth module and a 0.96” OLED screen. Other
-									features were a 140mAh li-ion battery, a disk vibrator motor, 3 tactile buttons and an LED flashlight.
-								</p>
-								<span class="image main"><img src="images/watch2.jpg" alt="" /></span>
-								<p>
-									The watch had firmware the allowed it to sync time from a smartphone, contol music playback as well as
-									receive and display system notifications. The smartphone side of the software was done using Tasker, so no real
-									Android development took place there.
-									This project was never completed because the casing, which was designed to be 3D printed,
-									was not possible to be made because I lacked access to a 3D printer at the time.
+									The display unit GUI was done in Python 3.7 using pygame as the UI manager. The UI has 4
+									different menus, showing graphs of temperature, humidity and sun, a menu that showed
+									notifications from various services that were configured using IFTTT, and lastly a menu with
+									debug info. All history info was stored in a SQlite database locally. The proximity sensor also
+									allowed a complete system shutdown or reboot based on timing events.
 								</p>
 								<hr />
-								<h2>Raspberry Pi Laptop - 2015</h2>
-								<span class="image main"><img src="images/laptop1.jpg" alt="" /></span>
+								<h2>Smart Doorbell - 2018</h2>
+								<span class="image main"><img src="images/bell1.jpg" alt="" /></span>
 								<p>
-									This project took way longer to complete than it ever should have. I had this idea of making my
-									own laptop after messing around with the original Raspberry Pi, so obviously I looked up on the 
-									internet to see if others had done it. To my surprise, nobody had gone all in on such a project, 
-									instead using power banks and bluetooth keyboards on a case and calling it a laptop.
+									This was a one day project that I made out of pure frustration of the doorbell situation at the
+									building I used to live in. The doorbell was a simple wireless doorbell that had a receiver that
+									plugged into the wall and would play a sound when it rang from the outside. While this worked,
+									the device was in a location I couldn’t hear in my apartment.
 								</p>
 								<p>
-									I wanted to go all in, and create a fully functioning laptop, and so I did. This was the first project I
-									made a 3D model out of, as you can see below. 
+									So what I did was, I took apart the receiver, and modified it slightly to get a signal out of it when
+									the bell was rang. This was an analog signal, and thus I needed to use something with an ADC
+									to make it internet connected. I already had a Raspberry Pi that was 24/7 on and acted as a
+									media center for my TV, and so I decided to use that. Instead of an ADC, I used an ATtiny8
+									board to read the ADC, and output a digital signal that I then connected to a GPIO input on the
+									raspberry pi. Then on the raspberry pi, I wrote a simple python script to read the GPIO pin, and
+									if it was HIGH, I would send a message to my phone using Telegram. Telegram allows anyone
+									to create a bot and there are APIs to control the bot from a python script, so I used that.
 								</p>
-								<span class="image main"><img src="images/laptop2.jpg" alt="" /></span>
-								<p>
-									A little more info regarding the electronics, a Raspberry Pi 2 
-									is used, with all plugs and connectors removed to reduce height. The screen is a 7” LCD panel at 720p resolution, 
-									with its own controller. The keyboard is a USB keyboard taken out of a tablet case. The trackpad is a very old 
-									PS/2 trackpad taken out of an HP laptop, and a PS/2 to USB adapter is used as well. There is a 2W stereo amplifier 
-									and stereo speakers from the aforementioned HP laptop, as well as a USB WiFi module, an SD card reader, and a 3 port USB hub.
-									Lastly, the battery is a 10.000mAh li-on battery with both the cells and charge/discharge and boost circuitry taken out of a power bank.
-									As for the mechanical aspects, the whole laptop is made out of 1mm aluminium sheet that is bent and cut to shape. 
-									The electronics are attached using either superglued nuts for the big components, like the main PCBs, or hot glue for other smaller components.
-								</p>
-								<p>
-									<a href="https://www.instructables.com/The-Ultimate-Raspberry-Pi-Laptop/">Instructable I made with a lot more information about the build</a>
-								</p>
-								<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/gzX_eUdESb0" title="YouTube video player" frameborder="0" 
-								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 								<hr />
 								<h2>Electric Skateboard - 2017</h2>
 								<span class="image main"><img src="images/board1.jpg" alt="" /></span>
@@ -168,55 +150,73 @@
 								</p>
 								<span class="image main"><img src="images/board4.jpg" alt="" /></span>
 								<hr />
-								<h2>Smart Doorbell - 2018</h2>
-								<span class="image main"><img src="images/bell1.jpg" alt="" /></span>
+								<h2>Raspberry Pi Laptop - 2015</h2>
+								<span class="image main"><img src="images/laptop1.jpg" alt="" /></span>
 								<p>
-									This was a one day project that I made out of pure frustration of the doorbell situation at the
-									building I used to live in. The doorbell was a simple wireless doorbell that had a receiver that
-									plugged into the wall and would play a sound when it rang from the outside. While this worked,
-									the device was in a location I couldn’t hear in my apartment.
+									This project took way longer to complete than it ever should have. I had this idea of making my
+									own laptop after messing around with the original Raspberry Pi, so obviously I looked up on the 
+									internet to see if others had done it. To my surprise, nobody had gone all in on such a project, 
+									instead using power banks and bluetooth keyboards on a case and calling it a laptop.
 								</p>
 								<p>
-									So what I did was, I took apart the receiver, and modified it slightly to get a signal out of it when
-									the bell was rang. This was an analog signal, and thus I needed to use something with an ADC
-									to make it internet connected. I already had a Raspberry Pi that was 24/7 on and acted as a
-									media center for my TV, and so I decided to use that. Instead of an ADC, I used an ATtiny8
-									board to read the ADC, and output a digital signal that I then connected to a GPIO input on the
-									raspberry pi. Then on the raspberry pi, I wrote a simple python script to read the GPIO pin, and
-									if it was HIGH, I would send a message to my phone using Telegram. Telegram allows anyone
-									to create a bot and there are APIs to control the bot from a python script, so I used that.
+									I wanted to go all in, and create a fully functioning laptop, and so I did. This was the first project I
+									made a 3D model out of, as you can see below. 
+								</p>
+								<span class="image main"><img src="images/laptop2.jpg" alt="" /></span>
+								<p>
+									A little more info regarding the electronics, a Raspberry Pi 2 
+									is used, with all plugs and connectors removed to reduce height. The screen is a 7” LCD panel at 720p resolution, 
+									with its own controller. The keyboard is a USB keyboard taken out of a tablet case. The trackpad is a very old 
+									PS/2 trackpad taken out of an HP laptop, and a PS/2 to USB adapter is used as well. There is a 2W stereo amplifier 
+									and stereo speakers from the aforementioned HP laptop, as well as a USB WiFi module, an SD card reader, and a 3 port USB hub.
+									Lastly, the battery is a 10.000mAh li-on battery with both the cells and charge/discharge and boost circuitry taken out of a power bank.
+									As for the mechanical aspects, the whole laptop is made out of 1mm aluminium sheet that is bent and cut to shape. 
+									The electronics are attached using either superglued nuts for the big components, like the main PCBs, or hot glue for other smaller components.
+								</p>
+								<p>
+									<a href="https://www.instructables.com/The-Ultimate-Raspberry-Pi-Laptop/">Instructable I made with a lot more information about the build</a>
+								</p>
+								<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/gzX_eUdESb0" title="YouTube video player" frameborder="0" 
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								<hr />
+								<h2>DIY Smartwatch - 2014</h2>
+								<span class="image main"><img src="images/watch1.jpg" alt="" /></span>
+								<p>
+									This was a project that I pursued simply because I liked the Pebble smartwatch, and I wanted
+									one, but I didn’t have the budget to buy one so I decided to make one.
+									It was based on an arduino pro mini, a bluetooth module and a 0.96” OLED screen. Other
+									features were a 140mAh li-ion battery, a disk vibrator motor, 3 tactile buttons and an LED flashlight.
+								</p>
+								<span class="image main"><img src="images/watch2.jpg" alt="" /></span>
+								<p>
+									The watch had firmware the allowed it to sync time from a smartphone, contol music playback as well as
+									receive and display system notifications. The smartphone side of the software was done using Tasker, so no real
+									Android development took place there.
+									This project was never completed because the casing, which was designed to be 3D printed,
+									was not possible to be made because I lacked access to a 3D printer at the time.
 								</p>
 								<hr />
-								<h2>Weather Station - 2020</h2>
-								<span class="image main"><img src="images/weather1.jpg" alt="" /></span>
+								<h2>LCD LED Projector - 2012</h2>
+								<span class="image main"><img src="images/projector1.jpg" alt="" /></span>
 								<p>
-									This project was done during the first covid-19 lockdown in the Netherlands. It was mainly done
-									to keep myself busy and try a create something useful out of components I had laying around
-									from other projects.
-									So I made a small weather station. For the information display, I used a 4.3” LCD screen, and
-									powered it with a Raspberry Pi model B, the original one! For extra peripherals a 433Mhz
-									receiver was added to communicate with the weather station, as well as a proximity sensor that I used to navigate on the user interface.
-								</p>
-								<span class="image main"><img src="images/weather2.jpg" alt="" /></span>
-								<p>
-									As for the weather station, I used an old arduino pro mini, a 433MHz transmitter that I got out of
-									an old doorbell, and a DH11 temperature and humidity sensor. The whole thing was powered
-									using a 9V battery, and a small solar cell was used to monitor cloud coverage. Of course not a
-									waterproof system but that could have been added later.
+									This was the first major project I ever attempted in highschool. I got the idea from a youtube video where
+									someone had created a home theater projector on their own, and I wanted to make one as well.
+									The complexity of such a project is pretty easy for a knowledgeable engineer, but for me, not
+									having a clue how electronics worked made for some very creative solutions.
 								</p>
 								<p>
-									The software on the weather station was pure C on an arduino level, and the microcontroller
-									would spend about 99% of its time in deep sleep mode, only waking up every few minutes to
-									take new readings and send them to the display unit.
+									The projector works by having a 30W LED act as the backlight to a 3.5” LCD screen. 
+									By using a lens to focus the light evenly on the screen, the screen is then projected to a wall
+									This projector also incorporated playback from a USB drive, which was achieved by
+									cannibalizing a portable dvd player that had that functionality.
 								</p>
-								<span class="image main"><img src="images/weather3.jpg" alt="" /></span>
 								<p>
-									The display unit GUI was done in Python 3.7 using pygame as the UI manager. The UI has 4
-									different menus, showing graphs of temperature, humidity and sun, a menu that showed
-									notifications from various services that were configured using IFTTT, and lastly a menu with
-									debug info. All history info was stored in a SQlite database locally. The proximity sensor also
-									allowed a complete system shutdown or reboot based on timing events.
+									While the whole design could have been a lot, and I mean a lot better, I feel proud for making
+									this and actually using it to watch movies with friends during the summer. I dedicated a lot of time
+									and love to make it happen, and it still works to this day.
 								</p>
+								<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/kdRH1EV7vJ8" title="YouTube video player" 
+								frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 								<hr />
 								<h2>Honorable Mentions 2010-2016</h2>
 								<span class="image main"><img src="images/other.jpg" alt="" /></span>
