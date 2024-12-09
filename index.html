@@ -55,13 +55,12 @@
 								<!--<span class="image main"><img src="images/me.jpg" alt="" /></span>-->
 								<p>
 									Hi I'm Andreas, an Embedded Systems Engineer and I like building things.<br /> 
-									I work with electronics, do both hardware and soft/firmware work,
+									I work with electronics, do both hardware and software/firmware work,
 									and am a massive fan of the aviation and space industry.<br />
 									<br />
 									I have an interest in developing new technology, as well as repairing and reusing.
 									You may also find me modifying and tweaking products to do cool things or make them do things they weren't designed to do.<br />
 									<br />
-									Everything that can be hacked, will be hacked.
 
 									</p>
 							</article>
@@ -73,6 +72,69 @@
 									Here you can find some of the projects I have done in my spare time mainly for fun. 
 									Some of them go back before I even finished highschool, while others are not properly 
 									documented anywhere and only few spare images exist.
+								</p>
+								<hr />
+								<h2>Custom Lightsaber - 2024</h2>
+								<span class="image main"><img src="images/saber1.jpg" alt="" /></span>
+								<p>
+									Custom designed lightsaber prop. Compared to most lightsaber designs, this one has a very unique feature.
+									There are 5 LED strips that allow the lightsaber blade to have 5 different colors along it's length.
+									This allows to create a rainbow colored blade that is not possible to do with typical pixel bladed lightsabers.
+								</p>
+								span class="image main"><img src="images/saber2.jpg" alt="" /></span>
+								<p>
+									All the internal and external parts were custom designed and 3D printed. 
+									The main control system is a Raspberry Pi Pico, and there is a 5W amplifier, an ADXL345 accelerometer, 
+									a TCS34725 color sensor for sensing the color of a custom kyber crystal, and a 2A Li-Ion battery charger.
+									There is also a custom made power control board as this system can easily draw over 10A at 4V.
+								</p>
+								span class="image main"><img src="images/saber3.jpg" alt="" /></span>
+								<p>
+									The blade is made of 5 COB WS2812B LED strips, all connected in parallel for power, and in series for the signal.
+								</p>
+								<hr />
+								<h2>Portal Turret - 2023</h2>
+								<span class="image main"><img src="images/turret1.jpg" alt="" /></span>
+								<p>
+									A replica of the popular Turret from the game Portal. 
+									It's a fully 3D printed, fully articulating replica. It can swivel the wings up and down, as well as left and right.
+									The wings can extend individually from eachother, and the center eye has a camera in the very center.
+
+								</p>
+								<span class="image main"><img src="images/turret2.jpg" alt="" /></span>
+								<p>
+									The whole thing runs on a Raspberry Pi ZeroW. All servos are controlled by the raspberry pi, as well as all the different lights like the bullet flashing lights and the eye lights.
+									There is a noIR mini camera attached as well, that is used to replicate what the turret does in the game, as in: Detect movement, find the moving target and aim at it.
+									The speaker also plays all the sound bites from the game, which are freely available in the Portal Wiki.
+									The software is written in Python and uses OpenCV for the image recognition and tracking.
+								</p>
+								<span class="image main"><img src="images/turret4.jpg" alt="" /></span>
+								<p>
+									The internal mechanism for extending as well as rotating the wings is a complete custom design. As far as I am aware, all similar designs use one servo to move both wings in and out.
+									The reason to use 2 servos is purely for an engineering challenge as well as to allow the dance animation these props do when you finish the game.
+									
+								</p>
+								<hr />
+								<h2>Pixel Display 2022</h2>
+								<span class="image main"><img src="images/pixel1.jpg" alt="" /></span>
+								<p>
+									Fun project creating a custom pixel based screen used for showing pixel art or information like time or animations.
+									10x12 pixels, using individually adressable LEDs (APA102). These LEDs were chosen specifically because of their higher refresh rate, as well as ability to dimm without flickering.
+									The whole display is made out of a custom designed 3D printed frame that isolated each LED to create each pixel.
+								</p>
+								<span class="image main"><img src="images/pixel2.jpg" alt="" /></span>
+								<span class="image main"><img src="images/pixel3.jpg" alt="" /></span>
+								<p>
+									The display is using a Raspberry Pi PicoW MCU as it's brain. 
+									The pixel arrangement and drawing methods were done by hand as this offered a learning oportunity for creating such a library
+								</p>
+								<span class="image main"><img src="images/pixel4.jpg" alt="" /></span>
+								<p>
+									The software connects to a pre-set local WiFi network, and sync the current time using NTP. 
+									There are 3 modes that can be set for this display over a LAN TCP connection.
+									1) Time, where just the current time is shown, changing color during the day and dimming after midnight.
+									2) Photo, where a single photo can be shown.
+									3) Video, where a video stream can be send over TCP to the display to be shown
 								</p>
 								<hr />
 								<h2>Weather Station - 2020</h2>
